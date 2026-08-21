@@ -1,0 +1,33 @@
+# Smithery configuration for Google Ads
+# Schema: https://smithery.ai/docs/build/project-config
+# Remote HTTP MCP — server hosted at https://api.mcp.ai/p_google_ads
+
+name: google_ads-mcp
+displayName: "Google Ads"
+description: >
+  Gestão completa de Google Ads: leitura (campanhas, performance, ROAS, keywords, termos de busca) e escrita (pausar/ativar/remover campanhas, ad groups, ads e keywords, ajustar orçamento e lance, criar budget, campanha, ad group, keywords positivas/negativas e RSAs). Você fornece developer token, OAuth client_id/secret, refresh_token e MCC, sem etapa OAuth no servidor.
+
+version: 0.1.0
+license: MIT
+homepage: https://github.com/mcp-dir/google_ads-mcp
+repository: https://github.com/mcp-dir/google_ads-mcp
+
+tags:
+  - google_ads
+  - brazil
+  - horizontal
+  - read-write
+
+# Remote HTTP MCP — sem startCommand local (servidor já hospedado)
+startCommand:
+  type: http
+  url: https://api.mcp.ai/p_google_ads
+
+auth:
+  type: oauth2
+  resourceMetadataUrl: https://api.mcp.ai/p_google_ads/.well-known/oauth-protected-resource
+  fallback:
+    type: agent-auth
+    description: >
+      Para clientes sem OAuth 2.1. O agente expõe uma tool authenticate(token).
+      Usuário gera o JWT em https://app.mcp.ai/agent-auth e cola no chat.

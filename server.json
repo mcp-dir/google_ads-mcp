@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mcp-dir/google_ads-mcp",
+  "title": "Google Ads",
+  "description": "Full Google Ads management: read (campaigns, performance, ROAS, keywords, search terms) and write (p",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/mcp-dir/google_ads-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.mcp.ai/p_google_ads"
+    }
+  ]
+}
